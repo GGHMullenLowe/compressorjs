@@ -1,7 +1,3 @@
-import {
-  WINDOW,
-} from './constants';
-
 const { slice } = Array.prototype;
 
 /**
@@ -61,8 +57,6 @@ export function getStringFromCharCode(dataView, start, length) {
   return str;
 }
 
-const { btoa } = WINDOW;
-
 /**
  * Transform array buffer to Data URL.
  * @param {ArrayBuffer} arrayBuffer - The array buffer to transform.
@@ -80,7 +74,7 @@ export function arrayBufferToDataURL(arrayBuffer, mimeType) {
     uint8 = uint8.subarray(chunkSize);
   }
 
-  return `data:${mimeType};base64,${btoa(chunks.join(''))}`;
+  return `data:${mimeType};base64,${window.btoa(chunks.join(''))}`;
 }
 
 /**

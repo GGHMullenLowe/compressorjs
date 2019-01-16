@@ -5,7 +5,7 @@
  * Copyright 2018-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2018-12-18T14:20:45.661Z
+ * Date: 2019-01-16T19:13:30.874Z
  */
 
 'use strict';
@@ -377,7 +377,6 @@ function getStringFromCharCode(dataView, start, length) {
 
   return str;
 }
-var btoa = WINDOW.btoa;
 /**
  * Transform array buffer to Data URL.
  * @param {ArrayBuffer} arrayBuffer - The array buffer to transform.
@@ -396,7 +395,7 @@ function arrayBufferToDataURL(arrayBuffer, mimeType) {
     uint8 = uint8.subarray(chunkSize);
   }
 
-  return "data:".concat(mimeType, ";base64,").concat(btoa(chunks.join('')));
+  return "data:".concat(mimeType, ";base64,").concat(window.btoa(chunks.join('')));
 }
 /**
  * Get orientation value from given array buffer.
